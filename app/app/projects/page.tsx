@@ -18,7 +18,7 @@ const page = async ({ searchParams }: SearchParamProps) => {
     getMyProjects({ name, status, category })
   );
 
-  if (err) return <ErrorScreen />;
+  if (err) return <ErrorScreen error={err} />;
 
   return (
     <ContentContainer>
