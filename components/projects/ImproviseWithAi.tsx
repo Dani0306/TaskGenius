@@ -14,7 +14,7 @@ import {
 } from "@/constants/project/improviseProject";
 import { AIProjectIdea } from "@/types";
 import { generateProjectImprovised } from "@/lib/prompts/projectImprovise";
-import { generateProjectIdea } from "@/actions/ai/generateProjectIdea";
+import { AIGenerate } from "@/actions/ai/generate";
 import { useToast } from "@/providers/toast/ToastProvider";
 import { useModal } from "@/providers/context/AppModalProvider";
 
@@ -43,7 +43,7 @@ const ImproviseWithAi = () => {
       project_size,
     });
 
-    const result = await generateProjectIdea(prompt)
+    const result = await AIGenerate(prompt)
       .catch((err) => {
         toast({
           title: "Error generating idea.",

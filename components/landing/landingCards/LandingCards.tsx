@@ -8,7 +8,10 @@ const LandingCards = () => {
   const { ref, inView } = useInViewCustom();
 
   return (
-    <div ref={ref} className="flex flex-col space-y-3 items-center mt-34 mb-8">
+    <div
+      ref={ref}
+      className="flex flex-col space-y-3 items-center mt-34 mb-8 px-6"
+    >
       <div
         className={`${
           inView && "slide-in-left"

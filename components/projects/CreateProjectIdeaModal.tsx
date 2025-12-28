@@ -9,7 +9,7 @@ import SelectOptions from "../shared/select/SelectOptions";
 import { TIMEFRAME_LABELS } from "@/constants/project/timeFrames";
 import DatePicker from "../shared/datePicker/DatePicker";
 import { Sparkles } from "lucide-react";
-import { generateProjectIdea } from "@/actions/ai/generateProjectIdea";
+import { AIGenerate } from "@/actions/ai/generate";
 import ProjectIdea from "./ProjectIdea";
 import { AIProjectIdea } from "@/types";
 import LoaderSpinner from "../shared/loader/LoaderSpinner";
@@ -39,7 +39,7 @@ const CreateProjectIdeaModal = () => {
       userContext: "",
     });
 
-    const projectIdea = await generateProjectIdea(prompt).finally(() => {
+    const projectIdea = await AIGenerate(prompt).finally(() => {
       setLoading(false);
     });
     setProjectIdea(JSON.parse(projectIdea));

@@ -7,9 +7,9 @@ import { TASK_FILTERS } from "@/constants/tasks/tasksFilters";
 import TasksFilters from "./TasksFilters";
 import { useModal } from "@/providers/context/AppModalProvider";
 import ModalContainer from "../modal/ModalContainer";
-import CreateTaskModal from "./CreateTaskModal";
 import { Project } from "@/types";
 import { User } from "@supabase/supabase-js";
+import ChooseTaskTypeToCreate from "./ChooseTaskTypeToCreate";
 
 const TasksHeader = ({ project, user }: { project: Project; user: User }) => {
   const { openModal } = useModal();
@@ -17,7 +17,7 @@ const TasksHeader = ({ project, user }: { project: Project; user: User }) => {
   const handleAddTask = () => {
     openModal(
       <ModalContainer size="lg">
-        <CreateTaskModal project={project} user={user} />
+        <ChooseTaskTypeToCreate project={project} user={user} />
       </ModalContainer>
     );
   };
